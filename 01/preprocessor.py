@@ -29,3 +29,13 @@ print("\nBinarized data =",data_binarized)
 
 #独热编码
 #one-of-k 的形式对每个值进行编码
+encoder = preprocessing.OneHotEncoder()
+encoder.fit([[0, 2, 1, 12],[1, 3, 5, 3],[2, 3, 2, 12],[1, 2, 4, 3]])
+encoder_vector = encoder.transform([[2, 3, 5, 3]]).toarray()
+print("\nEncoded vector =", encoder_vector)
+
+#Encoded vector = [[0. 0. 1. 0. 1. 0. 0. 0. 1. 1. 0.]]
+#说明：以列为单位进行非重复计数和编码，以上面例子为例
+#对[2, 3, 5, 3]中的2进行编码，先遍历原先的四维矩阵中对应的列向量[0, 1, 2, 1]
+#1为重复数，所以重新编号排序后为[0， 1， 2]，那么[2, 3, 5, 3]中的2对应的编码就为0，0，1.
+#以此类推
