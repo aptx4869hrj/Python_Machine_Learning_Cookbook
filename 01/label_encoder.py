@@ -16,3 +16,10 @@ labels = ['toyota', 'ford', 'audi']
 encoded_labels = label_encoder.transform(labels)
 print("\nLabels =",labels)
 print("Encoder labels =",list(encoded_labels))
+
+# 数字反转回单词
+encoder_labels = [2, 1, 0, 3, 1]
+decoder_labels = label_encoder.inverse_transform(encoder_labels)
+print("\nEncoder labels =", encoder_labels)
+print("Decoder labels =", list(decoder_labels))
+
